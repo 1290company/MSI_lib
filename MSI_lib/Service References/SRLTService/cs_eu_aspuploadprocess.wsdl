@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetMSIModel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s_model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s_marketname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMSIModelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMSIModelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Phone_Area">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Phone_AreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_AreaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parts_Onhand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vRC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vModel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parts_OnhandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parts_OnhandResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parts_Price">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vRC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vModel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parts_PriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parts_PriceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMSICNModelPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vRC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vModel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vMarketname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMSICNModelPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMSICNModelPriceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRMArequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s_newRMA" type="tns:rmaRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="rmaRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="s_newRMA_H" type="tns:S_rmaHeader" />
+          <s:element minOccurs="0" maxOccurs="1" name="s_newRMA_A" type="tns:S_rmaAttachment" />
+          <s:element minOccurs="0" maxOccurs="1" name="s_newRMA_L" type="tns:ArrayOfS_rmaLines" />
+          <s:element minOccurs="0" maxOccurs="1" name="s_newRMA_L_D" type="tns:ArrayOfS_rmaLine_details" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="S_rmaHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="rmano" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="seqno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customerno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customersite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="contact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="contactemail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="requesteruid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="salesuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="salesassistantuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="createddate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="repaircenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estarrivaldate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="refdocno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="rmatype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="statuscode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="origrepaircenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isreadyforscheduling" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalreceivedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalrepairedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalchangercqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalchangetypeqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalshippedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalclosedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalcreditedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="currencycode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reasoncode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="salesname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="iserpcopyorder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isreceivedelay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isshipdelay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="actarrivaldate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="actshipdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="origseqno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shippingmode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shiprc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="chkmode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="chkmode2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="requestdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="referenceno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tf_price" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cm_add" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pickup_cm_add" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cm_phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pickup_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pick_up" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="payment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="payment_others_desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pickup_city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cm_add2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cm_add3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="crc_data_tran" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cm_phone2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cm_faxno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shipment_remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="quotevia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="postal_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pickup_postal_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="account_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isbooking" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isonsite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ispickup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="transfertorc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="S_rmaAttachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="fileid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="rmano" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="filesize" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="filetype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="creatoruid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="createdtime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="rc_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfS_rmaLines">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="S_rmaLines" nillable="true" type="tns:S_rmaLines" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="S_rmaLines">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="rmano" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="seqno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lineno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="product" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="requestedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receivedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="repairedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="erpqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shippedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="uom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unitprice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="currencycode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="statuscode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="changercqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="changetypeqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="origlineno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sfincomeqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="creditedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="closedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="chargedqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="holdqty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="repaircenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customerpartno" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfS_rmaLine_details">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="S_rmaLine_details" nillable="true" type="tns:S_rmaLine_details" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="S_rmaLine_details">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="rmano" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lineno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="line_detail_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="barcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="is_received" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="is_shipped" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="warranty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customer_job_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="repaircenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fault_description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="updateRMArequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateRMArequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSRLTStatusList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="qf_cond" type="tns:QueryFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryFilter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_login_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_rcname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_tel_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_referenceno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_rmano" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_rmano2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_barcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_lob" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_customer_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_customer_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_request_date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_month" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_week" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_tmpFlag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSRLTStatusListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSRLTStatusListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getQuotationOBC">
+        <s:complexType />
+      </s:element>
+      <s:element name="getQuotationOBCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getQuotationOBCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getQuotationDeatil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vQuotationno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vRC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getQuotationDeatilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getQuotationDeatilResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSRLTStatusForIVR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vQueryFilter" type="tns:QueryFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSRLTStatusForIVRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSRLTStatusForIVRResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSRLTStatusForWeb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vQueryFilter" type="tns:QueryFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSRLTStatusForWebResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSRLTStatusForWebResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckBookingRMANO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vRMANO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckBookingRMANOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckBookingRMANOResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPelicanEDI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vrepaircenter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="begindate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inout" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPelicanEDIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPelicanEDIResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOffDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vCountry" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOffDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOffDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vCountry" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookingTbl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vcountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="begindate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookingTblResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookingTblResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupBookingAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vcountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vbookingdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vRMANO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vcustomer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vphone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vuesr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vBarcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vModel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vremark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupBookingAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PickupBookingAddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupBookingDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vcountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vbookingdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vRMANO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vcustomer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vphone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vuesr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vBarcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vModel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vremark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupBookingDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PickupBookingDeleteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RMABookingAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vsc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vbookingdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s_newRMA" type="tns:rmaRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RMABookingAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RMABookingAddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RMABookingDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vcountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vrc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vbookingdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vsession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vRMANO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vcustomer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vphone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vuesr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vBarcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vModel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vremark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RMABookingDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RMABookingDeleteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSRLTWarrantyInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="qf_cond" type="tns:QueryFilterH" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryFilterH">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_rcname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_rmano" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_barcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_credit_rmano" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_cnno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_s_tmpFlag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSRLTWarrantyInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSRLTWarrantyInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkbarcoderequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vBarcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkbarcoderequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chkbarcoderequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createRMArequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s_newRMA" type="tns:rmaRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createRMArequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="createRMArequestResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="s_rmano" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuotationConfirm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vBarcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vQuoNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vStatusCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vRC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vMSIMemo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vCancelReason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vRMANo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuotationConfirmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuotationConfirmResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBarcodeModelDesc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="v_Barocde" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBarcodeModelDescResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBarcodeModelDescResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMSIModelSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMSIModel" />
+  </wsdl:message>
+  <wsdl:message name="GetMSIModelSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMSIModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Phone_AreaSoapIn">
+    <wsdl:part name="parameters" element="tns:Phone_Area" />
+  </wsdl:message>
+  <wsdl:message name="Phone_AreaSoapOut">
+    <wsdl:part name="parameters" element="tns:Phone_AreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parts_OnhandSoapIn">
+    <wsdl:part name="parameters" element="tns:Parts_Onhand" />
+  </wsdl:message>
+  <wsdl:message name="Parts_OnhandSoapOut">
+    <wsdl:part name="parameters" element="tns:Parts_OnhandResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parts_PriceSoapIn">
+    <wsdl:part name="parameters" element="tns:Parts_Price" />
+  </wsdl:message>
+  <wsdl:message name="Parts_PriceSoapOut">
+    <wsdl:part name="parameters" element="tns:Parts_PriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMSICNModelPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMSICNModelPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetMSICNModelPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMSICNModelPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRMArequestSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRMArequest" />
+  </wsdl:message>
+  <wsdl:message name="updateRMArequestSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRMArequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTStatusListSoapIn">
+    <wsdl:part name="parameters" element="tns:getSRLTStatusList" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTStatusListSoapOut">
+    <wsdl:part name="parameters" element="tns:getSRLTStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getQuotationOBCSoapIn">
+    <wsdl:part name="parameters" element="tns:getQuotationOBC" />
+  </wsdl:message>
+  <wsdl:message name="getQuotationOBCSoapOut">
+    <wsdl:part name="parameters" element="tns:getQuotationOBCResponse" />
+  </wsdl:message>
+  <wsdl:message name="getQuotationDeatilSoapIn">
+    <wsdl:part name="parameters" element="tns:getQuotationDeatil" />
+  </wsdl:message>
+  <wsdl:message name="getQuotationDeatilSoapOut">
+    <wsdl:part name="parameters" element="tns:getQuotationDeatilResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTStatusForIVRSoapIn">
+    <wsdl:part name="parameters" element="tns:getSRLTStatusForIVR" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTStatusForIVRSoapOut">
+    <wsdl:part name="parameters" element="tns:getSRLTStatusForIVRResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTStatusForWebSoapIn">
+    <wsdl:part name="parameters" element="tns:getSRLTStatusForWeb" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTStatusForWebSoapOut">
+    <wsdl:part name="parameters" element="tns:getSRLTStatusForWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckBookingRMANOSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckBookingRMANO" />
+  </wsdl:message>
+  <wsdl:message name="CheckBookingRMANOSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckBookingRMANOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPelicanEDISoapIn">
+    <wsdl:part name="parameters" element="tns:GetPelicanEDI" />
+  </wsdl:message>
+  <wsdl:message name="GetPelicanEDISoapOut">
+    <wsdl:part name="parameters" element="tns:GetPelicanEDIResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOffDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOffDate" />
+  </wsdl:message>
+  <wsdl:message name="GetOffDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOffDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBookingTblSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBookingTbl" />
+  </wsdl:message>
+  <wsdl:message name="GetBookingTblSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookingTblResponse" />
+  </wsdl:message>
+  <wsdl:message name="PickupBookingAddSoapIn">
+    <wsdl:part name="parameters" element="tns:PickupBookingAdd" />
+  </wsdl:message>
+  <wsdl:message name="PickupBookingAddSoapOut">
+    <wsdl:part name="parameters" element="tns:PickupBookingAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PickupBookingDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:PickupBookingDelete" />
+  </wsdl:message>
+  <wsdl:message name="PickupBookingDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:PickupBookingDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RMABookingAddSoapIn">
+    <wsdl:part name="parameters" element="tns:RMABookingAdd" />
+  </wsdl:message>
+  <wsdl:message name="RMABookingAddSoapOut">
+    <wsdl:part name="parameters" element="tns:RMABookingAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="RMABookingDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:RMABookingDelete" />
+  </wsdl:message>
+  <wsdl:message name="RMABookingDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:RMABookingDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTWarrantyInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getSRLTWarrantyInfo" />
+  </wsdl:message>
+  <wsdl:message name="getSRLTWarrantyInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getSRLTWarrantyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="chkbarcoderequestSoapIn">
+    <wsdl:part name="parameters" element="tns:chkbarcoderequest" />
+  </wsdl:message>
+  <wsdl:message name="chkbarcoderequestSoapOut">
+    <wsdl:part name="parameters" element="tns:chkbarcoderequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="createRMArequestSoapIn">
+    <wsdl:part name="parameters" element="tns:createRMArequest" />
+  </wsdl:message>
+  <wsdl:message name="createRMArequestSoapOut">
+    <wsdl:part name="parameters" element="tns:createRMArequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuotationConfirmSoapIn">
+    <wsdl:part name="parameters" element="tns:QuotationConfirm" />
+  </wsdl:message>
+  <wsdl:message name="QuotationConfirmSoapOut">
+    <wsdl:part name="parameters" element="tns:QuotationConfirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBarcodeModelDescSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBarcodeModelDesc" />
+  </wsdl:message>
+  <wsdl:message name="GetBarcodeModelDescSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBarcodeModelDescResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ASPUploadProcessSoap">
+    <wsdl:operation name="GetMSIModel">
+      <wsdl:input message="tns:GetMSIModelSoapIn" />
+      <wsdl:output message="tns:GetMSIModelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Phone_Area">
+      <wsdl:input message="tns:Phone_AreaSoapIn" />
+      <wsdl:output message="tns:Phone_AreaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parts_Onhand">
+      <wsdl:input message="tns:Parts_OnhandSoapIn" />
+      <wsdl:output message="tns:Parts_OnhandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parts_Price">
+      <wsdl:input message="tns:Parts_PriceSoapIn" />
+      <wsdl:output message="tns:Parts_PriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMSICNModelPrice">
+      <wsdl:input message="tns:GetMSICNModelPriceSoapIn" />
+      <wsdl:output message="tns:GetMSICNModelPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRMArequest">
+      <wsdl:input message="tns:updateRMArequestSoapIn" />
+      <wsdl:output message="tns:updateRMArequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusList">
+      <wsdl:input message="tns:getSRLTStatusListSoapIn" />
+      <wsdl:output message="tns:getSRLTStatusListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getQuotationOBC">
+      <wsdl:input message="tns:getQuotationOBCSoapIn" />
+      <wsdl:output message="tns:getQuotationOBCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getQuotationDeatil">
+      <wsdl:input message="tns:getQuotationDeatilSoapIn" />
+      <wsdl:output message="tns:getQuotationDeatilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusForIVR">
+      <wsdl:input message="tns:getSRLTStatusForIVRSoapIn" />
+      <wsdl:output message="tns:getSRLTStatusForIVRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusForWeb">
+      <wsdl:input message="tns:getSRLTStatusForWebSoapIn" />
+      <wsdl:output message="tns:getSRLTStatusForWebSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckBookingRMANO">
+      <wsdl:input message="tns:CheckBookingRMANOSoapIn" />
+      <wsdl:output message="tns:CheckBookingRMANOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPelicanEDI">
+      <wsdl:input message="tns:GetPelicanEDISoapIn" />
+      <wsdl:output message="tns:GetPelicanEDISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffDate">
+      <wsdl:input message="tns:GetOffDateSoapIn" />
+      <wsdl:output message="tns:GetOffDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceInfo">
+      <wsdl:input message="tns:GetServiceInfoSoapIn" />
+      <wsdl:output message="tns:GetServiceInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingTbl">
+      <wsdl:input message="tns:GetBookingTblSoapIn" />
+      <wsdl:output message="tns:GetBookingTblSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PickupBookingAdd">
+      <wsdl:input message="tns:PickupBookingAddSoapIn" />
+      <wsdl:output message="tns:PickupBookingAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PickupBookingDelete">
+      <wsdl:input message="tns:PickupBookingDeleteSoapIn" />
+      <wsdl:output message="tns:PickupBookingDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RMABookingAdd">
+      <wsdl:input message="tns:RMABookingAddSoapIn" />
+      <wsdl:output message="tns:RMABookingAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RMABookingDelete">
+      <wsdl:input message="tns:RMABookingDeleteSoapIn" />
+      <wsdl:output message="tns:RMABookingDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTWarrantyInfo">
+      <wsdl:input message="tns:getSRLTWarrantyInfoSoapIn" />
+      <wsdl:output message="tns:getSRLTWarrantyInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkbarcoderequest">
+      <wsdl:input message="tns:chkbarcoderequestSoapIn" />
+      <wsdl:output message="tns:chkbarcoderequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createRMArequest">
+      <wsdl:input message="tns:createRMArequestSoapIn" />
+      <wsdl:output message="tns:createRMArequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuotationConfirm">
+      <wsdl:input message="tns:QuotationConfirmSoapIn" />
+      <wsdl:output message="tns:QuotationConfirmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBarcodeModelDesc">
+      <wsdl:input message="tns:GetBarcodeModelDescSoapIn" />
+      <wsdl:output message="tns:GetBarcodeModelDescSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ASPUploadProcessSoap" type="tns:ASPUploadProcessSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMSIModel">
+      <soap:operation soapAction="http://tempuri.org/GetMSIModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Phone_Area">
+      <soap:operation soapAction="http://tempuri.org/Phone_Area" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parts_Onhand">
+      <soap:operation soapAction="http://tempuri.org/Parts_Onhand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parts_Price">
+      <soap:operation soapAction="http://tempuri.org/Parts_Price" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMSICNModelPrice">
+      <soap:operation soapAction="http://tempuri.org/GetMSICNModelPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRMArequest">
+      <soap:operation soapAction="http://tempuri.org/updateRMArequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusList">
+      <soap:operation soapAction="http://tempuri.org/getSRLTStatusList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuotationOBC">
+      <soap:operation soapAction="http://tempuri.org/getQuotationOBC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuotationDeatil">
+      <soap:operation soapAction="http://tempuri.org/getQuotationDeatil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusForIVR">
+      <soap:operation soapAction="http://tempuri.org/getSRLTStatusForIVR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusForWeb">
+      <soap:operation soapAction="http://tempuri.org/getSRLTStatusForWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBookingRMANO">
+      <soap:operation soapAction="http://tempuri.org/CheckBookingRMANO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPelicanEDI">
+      <soap:operation soapAction="http://tempuri.org/GetPelicanEDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffDate">
+      <soap:operation soapAction="http://tempuri.org/GetOffDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceInfo">
+      <soap:operation soapAction="http://tempuri.org/GetServiceInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingTbl">
+      <soap:operation soapAction="http://tempuri.org/GetBookingTbl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupBookingAdd">
+      <soap:operation soapAction="http://tempuri.org/PickupBookingAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupBookingDelete">
+      <soap:operation soapAction="http://tempuri.org/PickupBookingDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RMABookingAdd">
+      <soap:operation soapAction="http://tempuri.org/RMABookingAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RMABookingDelete">
+      <soap:operation soapAction="http://tempuri.org/RMABookingDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTWarrantyInfo">
+      <soap:operation soapAction="http://tempuri.org/getSRLTWarrantyInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkbarcoderequest">
+      <soap:operation soapAction="http://tempuri.org/chkbarcoderequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createRMArequest">
+      <soap:operation soapAction="http://tempuri.org/createRMArequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuotationConfirm">
+      <soap:operation soapAction="http://tempuri.org/QuotationConfirm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBarcodeModelDesc">
+      <soap:operation soapAction="http://tempuri.org/GetBarcodeModelDesc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ASPUploadProcessSoap12" type="tns:ASPUploadProcessSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMSIModel">
+      <soap12:operation soapAction="http://tempuri.org/GetMSIModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Phone_Area">
+      <soap12:operation soapAction="http://tempuri.org/Phone_Area" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parts_Onhand">
+      <soap12:operation soapAction="http://tempuri.org/Parts_Onhand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parts_Price">
+      <soap12:operation soapAction="http://tempuri.org/Parts_Price" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMSICNModelPrice">
+      <soap12:operation soapAction="http://tempuri.org/GetMSICNModelPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRMArequest">
+      <soap12:operation soapAction="http://tempuri.org/updateRMArequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusList">
+      <soap12:operation soapAction="http://tempuri.org/getSRLTStatusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuotationOBC">
+      <soap12:operation soapAction="http://tempuri.org/getQuotationOBC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuotationDeatil">
+      <soap12:operation soapAction="http://tempuri.org/getQuotationDeatil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusForIVR">
+      <soap12:operation soapAction="http://tempuri.org/getSRLTStatusForIVR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTStatusForWeb">
+      <soap12:operation soapAction="http://tempuri.org/getSRLTStatusForWeb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBookingRMANO">
+      <soap12:operation soapAction="http://tempuri.org/CheckBookingRMANO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPelicanEDI">
+      <soap12:operation soapAction="http://tempuri.org/GetPelicanEDI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffDate">
+      <soap12:operation soapAction="http://tempuri.org/GetOffDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetServiceInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingTbl">
+      <soap12:operation soapAction="http://tempuri.org/GetBookingTbl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupBookingAdd">
+      <soap12:operation soapAction="http://tempuri.org/PickupBookingAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupBookingDelete">
+      <soap12:operation soapAction="http://tempuri.org/PickupBookingDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RMABookingAdd">
+      <soap12:operation soapAction="http://tempuri.org/RMABookingAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RMABookingDelete">
+      <soap12:operation soapAction="http://tempuri.org/RMABookingDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSRLTWarrantyInfo">
+      <soap12:operation soapAction="http://tempuri.org/getSRLTWarrantyInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkbarcoderequest">
+      <soap12:operation soapAction="http://tempuri.org/chkbarcoderequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createRMArequest">
+      <soap12:operation soapAction="http://tempuri.org/createRMArequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuotationConfirm">
+      <soap12:operation soapAction="http://tempuri.org/QuotationConfirm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBarcodeModelDesc">
+      <soap12:operation soapAction="http://tempuri.org/GetBarcodeModelDesc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ASPUploadProcess">
+    <wsdl:port name="ASPUploadProcessSoap" binding="tns:ASPUploadProcessSoap">
+      <soap:address location="http://rma3.msi.com/partnerws/cs_eu_aspuploadprocess.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ASPUploadProcessSoap12" binding="tns:ASPUploadProcessSoap12">
+      <soap12:address location="http://rma3.msi.com/partnerws/cs_eu_aspuploadprocess.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
